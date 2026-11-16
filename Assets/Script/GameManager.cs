@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
     [Header("HP Settings")]
     [SerializeField] private float maxHp = 100f;
     private float currentHp;
-    [SerializeField] private float regenRate = 1f; // 1 HP per second regeneration
+    [SerializeField] private float regenRate = 1f;
 
     [Header("UI Reference")]
-    [SerializeField] private Text hpText; // Drag your UI Text here
+    [SerializeField] private TMP_Text hpText;
 
     private void Awake()
     {
@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Health Regeneration (1 HP/sec), capped at 100
         if (currentHp < maxHp)
         {
             currentHp += regenRate * Time.deltaTime;
